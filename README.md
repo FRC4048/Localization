@@ -9,4 +9,5 @@ TODO:
 3. Hook up real Lidar
 4. Hook up to Rio and IMU
 5. Productize init and shutdown
+6. Rosbags
 
