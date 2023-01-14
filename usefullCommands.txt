@@ -1,0 +1,47 @@
+Enviroment Varabiles:
+	ROS_MASTER_URI (format=http://ipOfMachineRunningRos:11311)
+	ROS_HOSTNAME (format=currentMachineIP)
+	ROS_IP (format=currentMachineIP)
+--------------------------------------------------------------------------------
+Enviroment Varables Commands(linux):
+	Command to set envirment Varable
+	export [Varable Name] [Varables Value]
+		Ex. export ROS_IP 10.11.6.38
+	
+	Command to view currentValue of Enviroment Varable
+	echo $[Varable Name]
+		Ex. echo $ROS_HOSTNAME
+--------------------------------------------------------------------------------
+Usefull Commands:
+	To start ROS:
+        set ROS_MASTER_URI, ROS_HOSTNAME, ROS_IP
+        roscore
+
+	To start rviz:
+        set ROS_MASTER_URI, ROS_HOSTNAME, ROS_IP
+        rosrun rviz rviz
+
+	To start Gazebo on the VM:
+        Open a terminal
+        set ROS_MASTER_URI, ROS_HOSTNAME, ROS_IP
+        export TURTLEBOT3_MODEL=burger
+        roslaunch turtlebot3_gazebo turtlebot3_mw_office.launch
+
+	To control the robot in the simulation using the keyboard:
+        open a terminal
+        set ROS_MASTER_URI, ROS_HOSTNAME, ROS_IP
+        export TURTLEBOT3_MODEL=burger
+        roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+--------------------------------------------------------------------------------
+Commands for debuging:
+	If you dont have a IP in the virtual machine try running these commands
+		sudo dhclient -r
+		sudo dhclient	
+		*Also make sure you are in briged mode in the VM
+--------------------------------------------------------------------------------
+How to build,send, and execute Matlab Code on the jetson
+	1. Run the file tiled "send_to_gpu" in the "amcl_test" folder
+	2. On the jetson cd in to the folder ~/catkin_ws/devel/amcl_test (I think this is the path but I have to check)
+	3. run the file in the folder by type in the terminal "./amcl_test"
+--------------------------------------------------------------------------------
+
