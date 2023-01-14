@@ -5,8 +5,8 @@ The intent is to create a running example that can be ported over to the robot c
 
 TODO:
 1. Upload real map
-2. Productize init and shutdown
+2. Network table to ROS translation
 3. Hook up real Lidar
 4. Hook up to Rio and IMU
-5. Network table to ROS translation
+5. Productize init and shutdown
 
