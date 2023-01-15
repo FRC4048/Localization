@@ -1,7 +1,9 @@
 function amcl_test() %#codegen
 
+    mapSub = rossubscriber('/my_map',"nav_msgs/OccupancyGrid","DataFormat","struct");
     laserSub = rossubscriber("/scan","sensor_msgs/LaserScan","DataFormat","struct");
-    map = binaryOccupancyMap(100,100);
+%     map = binaryOccupancyMap(100,100);
+    map = rosReadBinaryOccupancyGrid(receive(mapSub));
     odometryModel = odometryMotionModel;
     odometryModel.Noise = [0.2 0.2 0.2 0.2];
     
@@ -9,6 +11,7 @@ function amcl_test() %#codegen
     rangeFinderModel = likelihoodFieldSensorModel;
     rangeFinderModel.SensorLimits = [0.45 8];
     rangeFinderModel.Map = map;
+    
 
 
     % Query the Transformation Tree (tf tree) in ROS.
@@ -30,6 +33,7 @@ function amcl_test() %#codegen
         [sensorTransform.Transform.Translation.X sensorTransform.Transform.Translation.Y laserRotation(1)];
 
 
+    
     odomSub = rossubscriber('/odom',"nav_msgs/Odometry","DataFormat","struct");
     %create ros publisher named debug and msg oject to send data
     [debug,msg] = rospublisher('/my_msg_epic',"geometry_msgs/Point","DataFormat","struct");
