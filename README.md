@@ -6,6 +6,7 @@ The intent is to create a running example that can be ported over to the robot c
 TODO:
 1. Upload real map
 2. Network table to ROS translation
+2.5. IMU Data from Network Tables to ROS
 3. Hook up real Lidar
 4. Hook up to Rio and IMU
 5. Productize init and shutdown
