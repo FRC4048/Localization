@@ -1,5 +1,6 @@
 function amcl_test() %#codegen
 
+
     mapSub = rossubscriber('/my_map',"nav_msgs/OccupancyGrid","DataFormat","struct");
     laserSub = rossubscriber("/scan","sensor_msgs/LaserScan","DataFormat","struct");
 %     map = binaryOccupancyMap(100,100);
@@ -34,7 +35,7 @@ function amcl_test() %#codegen
 
 
     
-    odomSub = rossubscriber('/odom',"nav_msgs/Odometry","DataFormat","struct");
+    odomSub = rossubscriber('/odom',"geometry_msgs/Point","DataFormat","struct");
     %create ros publisher named debug and msg oject to send data
     [debug,msg] = rospublisher('/my_msg_epic',"geometry_msgs/Point","DataFormat","struct");
     
@@ -64,10 +65,8 @@ function amcl_test() %#codegen
             % order of scan angle readings using 'flip' function.
             
             % Compute robot's pose [x,y,yaw] from odometry message.
-            odomQuat = [odompose.Pose.Pose.Orientation.W, odompose.Pose.Pose.Orientation.X, ...
-                odompose.Pose.Pose.Orientation.Y, odompose.Pose.Pose.Orientation.Z];
-            odomRotation = quat2eul(odomQuat);
-            pose = [odompose.Pose.Pose.Position.X, odompose.Pose.Pose.Position.Y odomRotation(1)];
+        
+            pose = [odomSub.X, odomSub.Y odomSub.Z];
             
             % Update estimated robot's pose and covariance using new odometry and
             % sensor readings.
