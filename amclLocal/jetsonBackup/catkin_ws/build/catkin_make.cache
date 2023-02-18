@@ -1,0 +1,2 @@
+amcl_test:mandelbrot_populate:rs_rplidar:test_launch
+-DCATKIN_DEVEL_PREFIX=/home/bzeliger/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bzeliger/catkin_ws/install -G Unix Makefiles

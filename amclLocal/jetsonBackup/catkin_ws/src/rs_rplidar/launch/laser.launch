@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+<node pkg="tf" type="static_transform_publisher" name="base_to_laser2" args="-0.2 0.2 0.2  -1 0 0 0 base_list laser2 10" />
+<node pkg="rplidar_ros" ns="laser2" name="laser2" type="rplidarNode" output="screen" />
+
+</launch>
