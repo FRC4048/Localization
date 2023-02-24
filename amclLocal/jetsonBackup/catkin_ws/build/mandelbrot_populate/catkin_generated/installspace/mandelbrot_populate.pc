@@ -1,0 +1,8 @@
+prefix=/home/bzeliger/catkin_ws/install
+
+Name: mandelbrot_populate
+Description: Description of mandelbrot_populate
+Version: 1.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp sensor_msgs std_msgs
